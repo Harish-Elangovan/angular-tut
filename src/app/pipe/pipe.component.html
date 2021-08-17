@@ -1,0 +1,50 @@
+<!-- this pipe is just a component, this deals with default pipes. Custom pipes are discussed in pipe-example.pipe.ts-->
+<h1>Welcome to pipe component!</h1>
+<!-- Default pipe -->
+<h1>{{ color }}</h1>
+<h1>{{ color | uppercase }}</h1>
+<h1>{{ color | lowercase }}</h1>
+<h1>{{ color | titlecase }}</h1>
+<br />
+<!-- Currency Pipe -->
+<h1>{{ 200 | currency }}</h1>
+<h1>{{ 200 | currency: "EUR" }}</h1>
+<h1>{{ 200 | currency: "INR" }}</h1>
+<br />
+<!-- Percent Pipe -->
+<h1>{{ 0.25 | percent }}</h1>
+<h1>{{ 0.2555264 | percent }}</h1>
+<h1>{{ 0.2555264 | percent: "2.3" }}</h1>
+<!-- two decimal as the number taken and next three decimal as point -->
+<br />
+<!-- Number Pipe -->
+<h1>{{ 2565 | number: "2.2" }}</h1>
+<br />
+<!-- Date Pipe -->
+<h1>{{ date }}</h1>
+<h1>{{ date | date }}</h1>
+<h1>{{ date | date: "dd/MM/YYYY" }}</h1>
+<h1>{{ date | date: "fullDate" }}</h1>
+<h1>{{ date | date: "longDate" }}</h1>
+<h1>{{ date | date: "mediumDate" }}</h1>
+<h1>{{ date | date: "shortDate" }}</h1>
+<h1>{{ date | date: "fullTime" }}</h1>
+<h1>{{ date | date: "longTime" }}</h1>
+<h1>{{ date | date: "mediumTime" }}</h1>
+<h1>{{ date | date: "shortTime" }}</h1>
+<br />
+<!-- Slice Pipe -->
+<h1>{{ actors | slice: 0 }}</h1>
+<h1>{{ actors | slice: 2 }}</h1>
+<h1>{{ actors | slice: 0:2 }}</h1>
+<br />
+<!-- Json pipe -->
+<h1>{{ employee | json }}</h1>
+
+<!-- Custom Pipe  -->
+<h1>{{ 16 | pipeExample }}</h1>
+<h1>{{ 81 | pipeExample }}</h1>
+
+<h1>{{ 3 | usetoinr: 72 }}</h1>
+<h1>{{ actors | arrReverce }}</h1>
+<h1>{{ ["1", "2", "3"] | arrReverce }}</h1>

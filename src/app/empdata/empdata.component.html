@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="text-center text-success">Welcome to Employee Data Page</h1>
+
+  <ul *ngFor="let emp of employees">
+    <li class="list-group-item">{{ emp.Name }}</li>
+    <li class="list-group-item">{{ emp.Age }}</li>
+    <li class="list-group-item">{{ emp.Empno }}</li>
+    <li class="list-group-item">{{ emp.Designation }}</li>
+  </ul>
+
+  <table class="table table-bordered table-hover table-success mb-5">
+    <thead class="table-dark">
+      <tr>
+        <th>Empno</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Designation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.Empno }}</td>
+        <td>{{ emp.Name }}</td>
+        <td>{{ emp.Age }}</td>
+        <td>{{ emp.Designation }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

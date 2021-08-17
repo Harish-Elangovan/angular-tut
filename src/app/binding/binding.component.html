@@ -1,0 +1,66 @@
+<!-- Data binding is of two types 
+    1> One-Way Data Binding
+     .interpolation
+    .propertyBinding 
+    .Event Binding 
+    .Class Binding 
+    .Style Binding 
+    2>Two-way Data Binding
+    .ngModel -->
+
+<h1>Welcome to Binding component</h1>
+
+<!-- interpolation -->
+{{ myStr }}
+<h1>Hi {{ myStr }}</h1>
+
+<!-- Property/attribute binding -->
+<img [src]="imgUrl" alt="image" height="150px" width="150px" />
+<button [disabled]="!mybool">Submit</button>
+
+<!-- ts file is refered as components file and html is refered as templates/ view file -->
+
+<!-- Event Binding -->
+<button class="btn btn-danger" (click)="getDate()">Get Date</button>
+<div class="form-field">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Enter text"
+    (keyup)="getName()"
+  />
+</div>
+
+<!-- Class binding -->
+<!--Can not add multiple class-->
+<p class="text-primary">
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, laborum!
+</p>
+
+<p [class.text-primary]="mybool">
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, laborum!
+</p>
+
+<button class="btn btn-primary">Click me</button>
+<button [class.btn-info]="!mybool">Click me</button>
+
+<!-- Style binding -->
+<h3 style="text-align: center">Harish Elangovan</h3>
+<h3 [style.text-align]="mybool ? 'center' : 'right'">Harish Elangovan</h3>
+
+<!-- Two way data binding -->
+<!-- ngModel -->
+<div class="container">
+  <h4>Harish is from {{ place }}</h4>
+  <div class="form-field col-4 mb-2">
+    <!--Should import FormsModule from '@angular/forms' in app.module.ts and FormsModule should be added in imports array-->
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="place"
+      (keydown)="getPlace()"
+      placeholder="Enter text"
+    />
+  </div>
+  <button (click)="getPlace()" class="btn btn-success">Get Place</button>
+</div>

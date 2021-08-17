@@ -1,0 +1,11 @@
+table img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+
+table th {
+  text-align: center;
+}

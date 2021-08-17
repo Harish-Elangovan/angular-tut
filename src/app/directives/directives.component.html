@@ -1,0 +1,139 @@
+<div class="container">
+  <h1 class="text-center text-success">Welcome to Directives page...</h1>
+  <pre class="text-success">
+      <!--component directives is the app component directory-->
+      1.Component Directives.
+            i)app.component.html
+            ii)app.component.css
+            iii)app.component.ts
+            iv)app.module.ts
+
+      2.Structural Directives- affects the DOM Structure
+            i)*ngIf
+            ii)*ngFor
+            iii)ngSwitch
+
+      3.Attribute Directives.
+            i)ngClass
+            ii)ngStyle
+  </pre>
+
+  <h2>Structural Directives</h2>
+  <!-- <h1 style="display: none">Hello</h1>
+  <h1 style="visibility: none;">Hello</h1> -->
+
+  <!-- 1.ngIf -->
+  <h1 *ngIf="bool; else i">Hello</h1>
+  <ng-template #i>
+    <h1>World</h1>
+  </ng-template>
+
+  <h1 *ngIf="bool; then e; else i"></h1>
+  <ng-template #e>
+    <h1>Hello</h1>
+  </ng-template>
+  <ng-template #i>
+    <h1>World</h1>
+  </ng-template>
+
+  <!-- 2.ngSwitch -->
+  <div [ngSwitch]="color">
+    <h1 *ngSwitchCase="'red'">This is color red</h1>
+    <h1 *ngSwitchCase="'blue'">This is color blue</h1>
+    <h1 *ngSwitchCase="'green'">This is color green</h1>
+    <h1 *ngSwitchCase="'yellow'">This is color yellow</h1>
+    <h1 *ngSwitchDefault>No color is matching</h1>
+  </div>
+  <div>
+    <!-- 3.ngFor -->
+    <div *ngFor="let skill of MEAN">
+      <h1>{{ skill }}</h1>
+    </div>
+    <br />
+    <div *ngFor="let skill of MEAN">
+      <li class="list-group-item list-group-item-success text-center">
+        {{ skill }}
+      </li>
+    </div>
+
+    <table
+      class="
+        table table-bordered table-striped table-dark table-hover
+        text-success
+      "
+    >
+      <thead>
+        <tr>
+          <th>SKILLS</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let skill of MEAN">
+        <tr class="text-success">
+          <td>{{ skill }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Marks</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let student of students">
+        <tr>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.Marks }}</td>
+          <td>{{ student.Age }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Attribute Directives</h2>
+
+  <!-- 1.ngClass -->
+  <!--Can add multiple class-->
+  <h1 [ngClass]="{ 'text-success': bool, 'text-center': !bool }">Hello</h1>
+
+  <!--2.ngStyle-->
+  <h1
+    [ngStyle]="{
+      color: !bool ? 'red' : 'blue',
+      'text-align': bool ? 'center' : 'right'
+    }"
+  >
+    World
+  </h1>
+
+  <table class="table table-bordered table-striped table-hover table-dark">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let actor of Actors">
+      <tr
+        [ngClass]="{
+          'text-danger': actor.Status == 'Dead',
+          'text-success': actor.Status == 'Alive'
+        }"
+      >
+        <td>{{ actor.Name }}</td>
+        <td>{{ actor.Age }}</td>
+        <td
+          [ngStyle]="{
+            'text-decoration':
+              actor.Status == 'Dead' ? 'line-through' : 'underline'
+          }"
+        >
+          {{ actor.Status }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

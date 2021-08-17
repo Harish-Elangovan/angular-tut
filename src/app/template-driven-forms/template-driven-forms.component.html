@@ -1,0 +1,78 @@
+<h1 class="text-warning text-center bg-success p-3">
+  Welcome to Template Driven Forms Component
+</h1>
+
+<div class="container">
+  <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+    {{ loginform.value | json }}
+    <div class="form-group m-2">
+      <input
+        class="form-control"
+        type="text"
+        name="User"
+        required
+        #User="ngModel"
+        ngModel
+        placeholder="Enter UserName"
+        minlength="6"
+        pattern="^[A-za-z]+$"
+        [class.is-invalid]="User.touched && User.invalid"
+      />
+      <div *ngIf="User.errors">
+        <div
+          *ngIf="User.errors.required"
+          [class.d-none]="User.untouched || User.valid"
+          class="text-danger alert alert-danger"
+        >
+          Field is mandatory
+        </div>
+        <div
+          *ngIf="User.errors.minlength"
+          [class.d-none]="User.untouched || User.valid"
+          class="text-danger"
+        >
+          Minimum 6 characters is must
+        </div>
+        <div
+          *ngIf="User.errors.pattern"
+          [class.d-none]="User.untouched || User.valid"
+          class="text-danger"
+        >
+          Pattern is not matching
+        </div>
+      </div>
+      <!-- {{ User.value | json }}
+      {{ User.className }} -->
+      <!-- output is given as default validation classes for the above -->
+    </div>
+    <div class="form-group m-2">
+      <input
+        class="form-control"
+        type="password"
+        name="Password"
+        #Password
+        ngModel
+        placeholder="Enter Password"
+        required
+      />
+      {{ Password.value | json }}
+      {{ Password.className }}
+    </div>
+    <button
+      class="btn btn-success m-2"
+      type="submit"
+      [disabled]="loginform.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+<!-- #User and #Password temp variable is used to hold indivigual data of the
+respective input fields 
+#loginform temp variableis used the hold the data of the whole form -->
+
+<!-- By default the directive is ng-untouched. When the user touch the field then the directive become ng-touched -->
+<!-- By default the directive is ng-pristine. When the user types in the field then the directive become ng-dirty -->
+<!-- By default the directive is ng-invaild(with 'required' attribute). When the user types in the field then the directive become ng-valid -->
+<!-- with out 'required' attribute the defauld directive is ng-valid -->

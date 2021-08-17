@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="text-center text-success">Welcome to InBuilt Service page</h1>
+
+  <h2 class="text-center text-danger">FetchApi using HttpClient</h2>
+</div>
+<table class="table table-bordered table-hover table-success">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Id</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let data of GitUsers">
+    <tr>
+      <td>{{ data.login }}</td>
+      <td>{{ data.id }}</td>
+      <td>
+        <img
+          style="border-radius: 50%"
+          src="{{ data.avatar_url }}"
+          height="150px"
+          width="150px"
+          alt="user image"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>

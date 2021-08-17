@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="bg-secondary text-center text-info p-5">Xylem Gallery</h1>
+  <!-- ! child routing
+<a class="btn btn-success m-5" routerLink="pump">Pump</a>
+<a class="btn btn-success m-5" routerLink="meter">Meter</a>
+<a class="btn btn-success m-5" routerLink="moter">Moter</a> -->
+
+  <!--! nested routing -->
+  <div class="row">
+    <div>
+      <a class="btn btn-success m-5" routerLink="pump">Pump</a>
+      <a class="btn btn-success m-5" routerLink="meter">Meter</a>
+      <a class="btn btn-success m-5" routerLink="moter">Moter</a>
+    </div>
+    <div class="border border-dark col">
+      <h1 class="text-center text-primary">food gallery</h1>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
